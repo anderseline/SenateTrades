@@ -20,4 +20,6 @@ ders.mailbot@gmail.com
 Or, follow along on [twitter](https://twitter.com/Senate_Trades)
 </b>
 
+Credit to Jie Jenn for his [Gmail API Helper Script](https://learndataanalysis.org/how-to-use-gmail-api-to-send-an-email-in-python/), specifically his [Google.py](/main/Google.py) file.
+
 ![](/res/repo_pics/git_logo.JPG)
