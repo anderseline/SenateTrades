@@ -377,7 +377,7 @@ def formatForEmail(trades_list):
 
 def sendEmails(trades, toList, testList):
 
-    CLIENT_SECRET_FILE = '..\\res\\gmail\\client.json'
+    CLIENT_SECRET_FILE = '..\\res\\gmail\\client_published.json'
     API_NAME = 'gmail'
     API_VERSION = 'v1'
     SCOPES = ['https://mail.google.com/']
