@@ -338,7 +338,7 @@ def formatForEmail(trades_list):
             cleanNewsURLQuery(t['trade'])
         )
 
-        if len(list_of_titles_urls) == 3:
+        if list_of_titles_urls != -1 and len(list_of_titles_urls) == 3:
             trades_for_txt.append(
                 {
                     'Trade Date' : trade_date,
