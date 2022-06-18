@@ -338,7 +338,7 @@ def formatForEmail(trades_list):
             cleanNewsURLQuery(t['trade'])
         )
 
-        if len(list_of_titles_urls) != 1:
+        if len(list_of_titles_urls) == 3:
             trades_for_txt.append(
                 {
                     'Trade Date' : trade_date,
@@ -485,8 +485,8 @@ def tweetTrades(trades_list, write_path, keys_path):
 def main():
 
     onlyToday = True
-    backtest = False
-    toList = True
+    backtest = True
+    toList = False
     testList = False
     backtestDate = '2022-05-01'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
