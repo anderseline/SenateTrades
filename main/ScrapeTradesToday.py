@@ -485,8 +485,8 @@ def tweetTrades(trades_list, write_path, keys_path):
 def main():
 
     onlyToday = True
-    backtest = True
-    toList = False
+    backtest = False
+    toList = True
     testList = False
     backtestDate = '2022-05-01'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
