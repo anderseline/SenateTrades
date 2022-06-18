@@ -488,19 +488,24 @@ def main():
     backtest = False
     toList = True
     testList = False
+    tweet = False ##########CHANGE
+    email = True
     backtestDate = '2022-06-13'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
     twitter_keys_path = '..\\res\\twitter\\keys.json'
 
     trades = scrapeImportantTrades(onlyToday=onlyToday, backtest=backtest, backtestDate=backtestDate)
-    trades_for_mail = formatForEmail(trades)
-    sendEmails(
-        trades=trades_for_mail, toList=toList, testList=testList
-    )
-    tweetTrades(
-        trades_list=trades, write_path=twitter_write_path, 
-        keys_path= twitter_keys_path
-    )
+    if len(trades) != 0:
+        if tweet:
+            tweetTrades(
+                trades_list=trades, write_path=twitter_write_path, 
+                keys_path= twitter_keys_path
+            )
+        if email:
+            trades_for_mail = formatForEmail(trades)
+            sendEmails(
+                trades=trades_for_mail, toList=toList, testList=testList
+            )
 
 if __name__ == '__main__':
     main()
