@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
 
+stopgap
 mail_info
 emails
 legacy
