@@ -1,4 +1,3 @@
-# file run locally in batchfile 
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from datetime import datetime,timedelta
@@ -16,6 +15,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from newsapi.newsapi_client import NewsApiClient
 import FormatFunctions
+from GeneratePostFiles import generatePostFiles
 
 def fetchSession(url):
     session = HTMLSession()
@@ -80,6 +80,18 @@ def getYahooInfo(ticker):
             zip(right_items, right_values)
         )
     )
+
+def getCurrentSP500Price():
+    url = 'https://finance.yahoo.com/quote/SPY/'
+    r = fetchSession(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    x = soup.find_all(
+        'fin-streamer', attrs={
+            'data-symbol' : 'SPY',
+            'data-field' : 'regularMarketPrice' 
+            }
+        )
+    return float(x[0].text)
 
 def isStock(right_table):
     return [*right_table][0] == 'Market Cap'
@@ -200,6 +212,30 @@ def getContactInfo(senator):
         'url':url
     }
 
+def getPartyState(senator):
+    lastname = getLastname(senator)
+    party_info = 'https://en.wikipedia.org/wiki/List_of_current_United_States_senators'
+    r = fetchSession(party_info)
+    table = r.html.find('table')[5]
+    senatorRows = table.find('tr')[1:]
+    row = 0
+    party = ''
+    state = ''
+    for s in senatorRows:
+        names = s.find('th')
+        for n in names:
+            name = n.text
+            if name.split(' ')[-1] == lastname:
+                staterow = (len(s.find('td')) == 11)
+                if staterow:
+                    party = s.find('td')[3].text.split('[')[0].split('\n')[0]
+                    state = s.find('td')[0].text
+                else:
+                    party = s.find('td')[2].text.split('[')[0].split('\n')[0]
+                    state = senatorRows[row-1].find('td')[0].text
+        row += 1
+    return [party, state]
+
 def writeTradeToFile(trade, path):
     with open(path, 'w') as f:
         for (key,item) in trade.items():
@@ -313,8 +349,9 @@ def scrapeImportantTrades(today=datetime.today().date(), onlyToday=False, backte
 def formatForEmail(trades_list):
     trades_for_txt = []
     for t in trades_list:
+        # change datetime.today().date() to strptime from file date.date()
         trade_date = str(t['trade date']) + ' (' + str((
-                datetime.today().date() - datetime.strptime(
+                datetime.strptime(t['file date'], '%Y-%m-%d').date() - datetime.strptime(
                     t['trade date'], '%Y-%m-%d'
                 ).date()
             )).split(',')[0] + ' ago)'
@@ -332,12 +369,18 @@ def formatForEmail(trades_list):
         else:
             mkt_cap_string = 'Large Cap (Over $10B)'
 
+        party_state = getPartyState(t['senator'])
+        if party_state[0] and party_state[1] != '':
+            if party_state[0] == 'Republican':
+                senator_info = t['senator'] + ' (R - ' + party_state[1] + ')'
+            else:
+                senator_info = t['senator'] + ' (D - ' + party_state[1] + ')'
         path = 'res/news/news_key.txt'
         list_of_titles_urls = getTradesNews(t, path)
         contact_info = getContactInfo(t['senator'])
         trades_for_txt.append(
             FormatFunctions.makeEmailDict(
-                list_of_titles_urls, t, trade_date, 
+                list_of_titles_urls, t, trade_date, senator_info,
                 value_string, mkt_cap_string, contact_info
             )
         )
@@ -346,15 +389,15 @@ def formatForEmail(trades_list):
 
 def sendEmails(trades, toList, toNewList):
 
-    CLIENT_SECRET_FILE = 'res/gmail/client_published.json'
+    CLIENT_SECRET_FILE = 'res/gmail/senatetrades_gmailKeys.json'
     API_NAME = 'gmail'
     API_VERSION = 'v1'
     SCOPES = ['https://mail.google.com/']
 
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
-    send_email = 'ders.mailbot@gmail.com'
+    send_email = 'senatetrades@gmail.com'
     recipients = []
-    # code to send trades to list of recipient emails 
+
     if toList:
         list_path = 'res/mail_info/mailing_list.txt'
         with open(list_path,'r') as f:
@@ -377,8 +420,7 @@ def sendEmails(trades, toList, toNewList):
 
         with open(html_write_path,'r') as f:
             data = f.read()
-        # if the length of the string from the file is not 0, then there was a 
-        # (major) trade executed today
+
         if len(data) != 0:
             message = MIMEMultipart('alternative')
             message['Subject'] = 'Trade Alert'
@@ -413,10 +455,16 @@ def formatForTwitter(trades_list):
         )
         ticker = getTicker(t['trade'])
         yahoo_link = 'https://finance.yahoo.com/quote/{}'.format(ticker)
+        party_state = getPartyState(t['senator'])
+        if party_state[0] and party_state[1] != '':
+            if party_state[0] == 'Republican':
+                senator_info = t['senator'] + ' (R - ' + party_state[1] + ')'
+            else:
+                senator_info = t['senator'] + ' (D - ' + party_state[1] + ')'
         trades_for_twitter.append(
             {
                 'Ticker' : ticker,
-                'Senator' : t['senator'],
+                'Senator' : senator_info,
                 'Value' : value_string,
                 'Trade Date' : t['trade date'],
                 'yahoo' : yahoo_link
@@ -467,7 +515,7 @@ def getLatestTradecode(r):
     return tradecode
 
 def addToDashboard(t, row_path):
-    SERVICE_ACCOUNT_FILE = 'res/sheets/sheets_keys.json'
+    SERVICE_ACCOUNT_FILE = 'res/sheets/senatetrades_sheetsKeys.json'
     credentials = service_account.Credentials.from_service_account_file(
         filename=SERVICE_ACCOUNT_FILE
     )
@@ -475,18 +523,20 @@ def addToDashboard(t, row_path):
 
     with open(row_path, 'r') as f:
         row = f.read() # row number of next empty row
-    GOOGLE_SHEETS_ID ='14eg98rZU5Rza-MeUQMQJAaJD90Iz4OwTniB5Pd4vrzE'
+    GOOGLE_SHEETS_ID ='1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk'
     worksheet = 'Dashboard!'
-    cell_range_insert = 'B{}:G{}'.format(row,row)
+    cell_range_insert = 'B{}:I{}'.format(row,row)
     
     ticker = getTicker(t['trade'])
     sector = t['sector']
+    senator = t['senator']
+    party = getPartyState(t['senator'])[0]
     file_date = t['file date']
     price_at_filing = getOpen(getYahooInfo(ticker)[0])
     current_price = '=IFERROR(GOOGLEFINANCE(B{}),0)'.format(row)
-    ret = '=(F{}-E{})/E{}'.format(row,row,row)
+    ret = '=(H{}-G{})/G{}'.format(row,row,row)
     values = (
-        (ticker, sector, file_date, price_at_filing, current_price, ret),
+        (ticker, senator, party, sector, file_date, price_at_filing, current_price, ret),
     )
     value_range_body = {
     'majorDimension' : 'ROWS',
@@ -503,18 +553,46 @@ def addToDashboard(t, row_path):
     with open(row_path, 'w') as f:
         f.write(str(row))
 
+def updateSPPrice():
+    price = getCurrentSP500Price()
+    SERVICE_ACCOUNT_FILE = 'res/sheets/senatetrades_sheetsKeys.json'
+    credentials = service_account.Credentials.from_service_account_file(
+        filename=SERVICE_ACCOUNT_FILE
+    )
+    service_sheets = build('sheets', 'v4', credentials=credentials)
+    GOOGLE_SHEETS_ID ='1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk'
+    worksheet = 'Dashboard!'
+    cell_range_insert = 'J2:K2'
+    values = (
+        (401.72, price),
+    )
+    value_range_body = {
+        'majorDimension' : 'ROWS',
+        'values' : values
+    }
+    service_sheets.spreadsheets().values().update(
+    spreadsheetId=GOOGLE_SHEETS_ID,
+    valueInputOption='USER_ENTERED',
+    range=worksheet + cell_range_insert,
+    body=value_range_body
+    ).execute()
+
 def main():
 
-    onlyToday = False                        
-    toList = False   
+    onlyToday = True                     
+    toList = True
     toNewList = False
-    tweet = False  
-    email = True    
-    dashboard = False     
-    backtestDate = '2022-10-01'
+    createPostFiles = True  
+    tweet = True
+    email = True   
+    dashboard = True     
+    backtestDate = '2022-10-14'
     twitter_write_path = 'res/twitter/write_for_twitter.txt'
     twitter_keys_path = 'res/twitter/keys.json'
     dashboard_row_path = 'res/sheets/row.txt'
+    base_path = 'res/trade_posts'
+
+    updateSPPrice()
 
     if onlyToday:
         url = 'https://sec.report/Senate-Stock-Disclosures'
@@ -531,15 +609,17 @@ def main():
         onlyToday=onlyToday, backtest=not onlyToday, backtestDate=backtestDate
     )
     if len(trades) != 0:
+        formatted_trades = formatForEmail(trades)
+        if createPostFiles:
+            generatePostFiles(formatted_trades=formatted_trades, base_path=base_path)
         if tweet:
             tweetTrades(
                 trades_list=trades, write_path=twitter_write_path, 
                 keys_path= twitter_keys_path
             )
         if email:
-            trades_for_mail = formatForEmail(trades)
             sendEmails(
-                trades=trades_for_mail, toList=toList, toNewList=toNewList
+                trades=formatted_trades, toList=toList, toNewList=toNewList
             )
         if dashboard:
             for t in reversed(trades):
