@@ -5,10 +5,10 @@
 # :high_brightness:Frequently Visited:high_brightness: #
 
 - <b>[Website](https://anderseline.github.io/senatetrades.io/)</b> :computer:
-- <b>[Newsletter Signup Form](https://docs.google.com/forms/d/e/1FAIpQLScnSVtK0tDMzJJEuNwqXYTuMK2RWexg0pDT3X9ZJiQHW6beeQ/viewform?usp=sf_link)</b> :email:
+- <b>[Newsletter Signup Form](https://docs.google.com/forms/d/e/1FAIpQLSdhqKAbnLGOL9Jm9agusyxRuAyXOg_UiJZms9SGHC-hdRLzgQ/viewform?usp=sf_link)</b> :email:
 - <b>[Twitter](https://twitter.com/Senate_Trades)</b> :mega:
 - <b>[Dashboard](https://docs.google.com/spreadsheets/d/1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk/edit#gid=0)</b> :bar_chart:
-- <b>[Question & Suggestion Form](https://docs.google.com/forms/d/e/1FAIpQLSdivz9xjREirrWGmRUgVr6tBCtvoEJNF3Y0gkihADa0cpyaBg/viewform?usp=sf_link)</b> :postbox:
+- <b>[Question & Suggestion Form](https://docs.google.com/forms/d/e/1FAIpQLSeSbwH-fTvP5M1ju37EEQa7e4s-cDaN-lKsf0skosXPbZPcew/viewform?usp=sf_link)</b> :postbox:
 
 # :thought_balloon:Most-Asked:thought_balloon: #
 
