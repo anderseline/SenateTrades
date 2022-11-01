@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "senatetrades-367316",
+  "private_key_id": "6f5aac87ba49dc9a042e336b3b909f3968da80a7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC9bRytl85zUVTP\n9hpFpS6R4Zs2IOaBXsl3WVHL91cxZM69UDc4BJwFi2sk+lm4L5ZS/fNTuszRoDnR\nC6fkuLJQKhxf3YVEp9MLQ0rDAnf/1V+e2n/TxqHHgqUiqqmZlZ3sDZAu1Z/5sBEX\nF28Gt7pp0WOoHUzGo1wi9dcu31mUYDZy1fk25kbUp5Hs6Y05bcGLL13okh9b3HLE\nPZzHlbOlxjnASSOlIHpIP4rGX2T7ji1oy2UtlzklKInU2cEphQnYbc1LNdVCOWdQ\nsjzfxGWbzKUY87XeNri/2AfZ+EPnf23FrvqxnwyI0unh8MOymOsV/CDcKmHqVFff\n3NSEJDozAgMBAAECggEAHYDDDgkuLykkYTI0K/4VihnDXOOJmJi0yZFF0NN4kcmL\npvy5Z6YqzspE09Y85xeyUsFu2+76O6QNnTuILh1+LZzWx9pECXTCGrz5BfUlJNmM\n3RGsWxr9fjTLl4ymgbSbNiAerCIQRTQLqrcMTyrf2TSy+tolZ8LFykQpUbRDytIJ\nZ/4gPr8rlV6/Y0I+yU8YQ7MzFXxysbZLNHcfkfJ1ou6EZW9Cvw/cokGeEN/yzM2Z\ntwzh/MYeP0EcZlopFXu38ekoyEn/BayhR1lWR/BVUb3oNMQP9KHncOKfjQTYxFEH\ncWolOClAKQlWqWt4YG9kKOKUXGMtJbPE4oTbplELIQKBgQD/CKGF9HPTbEaCUwtW\nvuuMHNlIZzOPile2GJnzCZcB3DYXpHYg8uFkH4v58MtMibt7L7ZJhWgqKXxixkK1\n05UwWi2h9wxao05JSLeadKk1zKm/OiskcWOaVSa7Nz6rIN9KWR0DDYn2GyTkH45q\nlRkt+Ck5wuZPyaYZSE7eqFdnGwKBgQC+JNhmkFw4vYrkYTJHpPr87k7TF8+eMZEe\nx/izOqAFAFnCidEqsvvL0aJRwQvEytSOSsYhUSMHKDsM51WIYHeUiE4c8ljheUpY\n5yAhRkX5omm5pUsZir2DxTaL/yjwz5v7KvzoyTBiISGmHluMVLshR3Rv2BYRq8Ba\nsOzb4TMyyQKBgQCrMkcDHdJ2lRNLvqU46NZDasYsxSImc+5nDWKic8iLdiBVhI/L\nlF7akBathAdkbHyOt7t85PHEg668u2vilJJsL8y8EZOYcFFH/mlJZJCFzcoQ1OJL\nB1aeLhTezbnitCFPzjwcZYU70ILWI5y9TTLm2dQKsxtZafp2tERFUOnDCwKBgQC2\n5vhmiFy9k84D618TPabVIGMgeVoUYLeotVENDsqYpQKyuCFFApBlOcz6+UhZz4Xx\nLgoySDr6in9q5SgInErKzObev1wx35tds03b1B5BiDJNCqwX8LZmB5F1z0dRhVMU\nowBO6CCrdBVLFw6XCXZMB9EAOQrZiq3oTyI4TAMUyQKBgDNVEibtTJKa5MSTwPJX\nCY92JpqTkruEnugLEd8IUNuWQo8GBrR20PBH1TAIaulTvFcp/mRqrj0s16zs3F3w\nYO0+BwiT3nVqUBw5BHxareXz/nNCTTNb4e9p9HmbmZi6pHWM2aM5oMN7YlvIuY9M\nTzrjZOezV0j5zJl5UJPK9/q1\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheets@senatetrades-367316.iam.gserviceaccount.com",
+  "client_id": "115624601398229581757",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheets%40senatetrades-367316.iam.gserviceaccount.com"
+}

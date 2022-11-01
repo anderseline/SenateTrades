@@ -1,0 +1,14 @@
+Trade Date : 2022-09-23 (24 days ago)
+File Date : 2022-10-17
+Senator : Tina Smith (D - Minnesota)
+Equity : Artivion, Inc. Common Stock [AORT]
+Trade Value : $50,001 to $100,000
+Market Cap : Small Cap (Under $2B)
+Sector : Healthcare
+Industry : Medical Devices
+https://finance.yahoo.com/quote/AORT/
+Lastname : Smith
+Contact URL : https://www.smith.senate.gov/contact
+Title 1 : Artivion (NYSE:AORT) shareholders have endured a 55% loss from investing in the stock three years ago
+URL1 : https://finance.yahoo.com/news/artivion-nyse-aort-shareholders-endured-190954257.html
+
