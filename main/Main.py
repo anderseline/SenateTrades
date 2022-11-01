@@ -485,7 +485,7 @@ def writeTradeToFileTwitter(trade, path):
                 key,item
                 )
             )
-        f.write('\nhttps://docs.google.com/spreadsheets/d/14eg98rZU5Rza-MeUQMQJAaJD90Iz4OwTniB5Pd4vrzE')
+        f.write('\nhttps://docs.google.com/spreadsheets/d/1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk')
 
 def tweetTrades(trades_list, write_path, keys_path):
     trades_for_twitter = formatForTwitter(trades_list)
@@ -579,13 +579,13 @@ def updateSPPrice():
 
 def main():
 
-    onlyToday = False                     
-    toList = False
+    onlyToday = True                     
+    toList = True
     toNewList = False
-    createPostFiles = False
-    tweet = False
+    createPostFiles = True  
+    tweet = True
     email = True   
-    dashboard = False     
+    dashboard = True     
     backtestDate = '2022-10-14'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
     twitter_keys_path = '..\\res\\twitter\\keys.json'
