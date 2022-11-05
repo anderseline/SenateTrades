@@ -62,8 +62,9 @@ def generatePostFiles(formatted_trades, base_path):
         lines.append('title: ' + equity + '\n')
         lines.append('subtitle: Senator - ' + senator + '\n')
         lines.append('gh-repo: anderseline/senatetrades.io\n')
+        ind = ind.replace(',', '')
         tags = ('tags: [' + ticker + ', ' + senator + ', ' 
-        + party + ', ' + sect + ', ' + ind + ', ' + mkt_cap + ']\n')
+        + party + ', ' + sect + ', ' + sect + ' - ' + ind + ', ' + mkt_cap + ']\n')
         # method for remove ascii characters which are unrenderable (handling depends on where they appear)
         tags_enc = tags.encode('ascii', 'replace')
         tags_dec = tags_enc.decode()
