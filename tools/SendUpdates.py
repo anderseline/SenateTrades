@@ -5,7 +5,9 @@ from Google import Create_Service
 import base64
 
 SEND_TO_ALL = False
-SEND_TO_NEW_LIST = False
+SEND_TO_NEW_LIST = True
+
+subject = 'Welcome to SenateTrades!'
 
 send_file = '..\\res\\html\\emails\\welcome.html'
 
@@ -42,7 +44,7 @@ recipients = ', '.join(recipients)
 print(recipients)
 
 message = MIMEMultipart('alternative')
-message['Subject'] = 'New Website & Coming Digest Series!'
+message['Subject'] = subject
 message['From'] = formataddr(('SenateTrades', send_email))
 message['to'] = send_email
 message['Bcc'] = recipients

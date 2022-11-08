@@ -10,5 +10,7 @@ https://finance.yahoo.com/quote/AORT/
 Lastname : Smith
 Contact URL : https://www.smith.senate.gov/contact
 Title 1 : Artivion (NYSE:AORT) shareholders have endured a 55% loss from investing in the stock three years ago
+Title 2 : Artivion, Inc. (AORT) Q3 2022 Earnings Call Transcript
 URL1 : https://finance.yahoo.com/news/artivion-nyse-aort-shareholders-endured-190954257.html
+URL2 : https://seekingalpha.com/article/4553764-artivion-inc-aort-q3-2022-earnings-call-transcript
 

@@ -3,4 +3,4 @@ Senator : Tina Smith (D - Minnesota)
 Value : $50,001 to $100,000
 Trade Date : 2022-09-23
 https://finance.yahoo.com/quote/AORT
-https://docs.google.com/spreadsheets/d/14eg98rZU5Rza-MeUQMQJAaJD90Iz4OwTniB5Pd4vrzE
+https://docs.google.com/spreadsheets/d/1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk

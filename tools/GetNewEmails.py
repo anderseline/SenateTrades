@@ -13,6 +13,7 @@ def main():
         emails = list(emails['Email Address'])
     except:
         emails = list(emails['Username'])
+
     # remove duplicates 
     emails = [*set(emails)]
     existing = []

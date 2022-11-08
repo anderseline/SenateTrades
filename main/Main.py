@@ -586,7 +586,7 @@ def main():
     tweet = True
     email = True   
     dashboard = True     
-    backtestDate = '2022-11-01'
+    backtestDate = '2022-10-01'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
     twitter_keys_path = '..\\res\\twitter\\keys.json'
     dashboard_row_path = '..\\res\\sheets\\row.txt'
