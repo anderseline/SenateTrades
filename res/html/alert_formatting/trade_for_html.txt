@@ -1,16 +1,18 @@
-Trade Date : 2022-09-23 (24 days ago)
-File Date : 2022-10-17
-Senator : Tina Smith (D - Minnesota)
-Equity : Artivion, Inc. Common Stock [AORT]
-Trade Value : $50,001 to $100,000
-Market Cap : Small Cap (Under $2B)
-Sector : Healthcare
-Industry : Medical Devices
-https://finance.yahoo.com/quote/AORT/
-Lastname : Smith
-Contact URL : https://www.smith.senate.gov/contact
-Title 1 : Artivion (NYSE:AORT) shareholders have endured a 55% loss from investing in the stock three years ago
-Title 2 : Artivion, Inc. (AORT) Q3 2022 Earnings Call Transcript
-URL1 : https://finance.yahoo.com/news/artivion-nyse-aort-shareholders-endured-190954257.html
-URL2 : https://seekingalpha.com/article/4553764-artivion-inc-aort-q3-2022-earnings-call-transcript
+Trade Date : 2022-10-13 (28 days ago)
+File Date : 2022-11-10
+Senator : Thomas H Tuberville (R - Alabama)
+Equity : Microsoft Corporation - Common Stock [MSFT]
+Trade Value : $250,001 to $500,000
+Market Cap : Large Cap (Over $10B)
+Sector : Technology
+Industry : Software—Infrastructure
+https://finance.yahoo.com/quote/MSFT/
+Lastname : Tuberville
+Contact URL : https://www.tuberville.senate.gov/contact
+Title 1 : Cryptoverse: Bitcoin wants to break its bond with stocks - Reuters
+Title 2 : 2 Tech Stocks to Consider Buying Over NVIDIA
+Title 3 : Let These 3 Stocks Lead You Through the Bear Market
+URL1 : https://www.reuters.com/technology/cryptoverse-bitcoin-wants-break-its-bond-with-stocks-2022-11-01/
+URL2 : https://stocknews.com/news/nvda-csco-hckt-2-tech-stocks-to-consider-buying-over-nvidia/
+URL3 : https://stocknews.com/news/wmt-csco-vrtx-let-these-3-stocks-lead-you-through-the-bear-market/
 

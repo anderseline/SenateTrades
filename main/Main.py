@@ -331,7 +331,6 @@ def scrapeImportantTrades(today=datetime.today().date(), onlyToday=False, backte
             cap_string = 'large'
 
         if imp_trade:
-            print(ticker)
             url = 'https://finance.yahoo.com/quote/{}/'.format(ticker)
             trade_dict = {
                 'trade date' : trade_date,
@@ -398,7 +397,6 @@ def sendEmails(trades, toList, toNewList):
     SCOPES = ['https://mail.google.com/']
 
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
-    print(service)
     send_email = 'senatetrades@gmail.com'
     recipients = []
 
@@ -584,7 +582,7 @@ def updateSPPrice():
 def main():
 
     onlyToday = False                     
-    toList = False
+    toList = True   
     toNewList = False
     createPostFiles = False  
     tweet = False
