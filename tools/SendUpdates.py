@@ -14,7 +14,7 @@ send_file = '..\\res\\html\\emails\\welcome.html'
 recipients_path = '..\\res\\mail_info\\mailing_list.txt'
 new_path = '..\\res\\mail_info\\mailing_new.txt'
 
-CLIENT_SECRET_FILE = '..\\res\\gmail\\senatetrades_gmailKeys.json'
+CLIENT_SECRET_FILE = '..\\res\\gmail\\gmail_keys.json'
 API_NAME = 'gmail'
 API_VERSION = 'v1'
 SCOPES = ['https://mail.google.com/']

@@ -582,12 +582,12 @@ def updateSPPrice():
 def main():
 
     onlyToday = True                         
-    toList = True   
+    toList = True 
     toNewList = False
     createPostFiles = True  
     tweet = True
     email = True
-    dashboard = True     
+    dashboard = True    
     backtestDate = '2022-11-09'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
     twitter_keys_path = '..\\res\\twitter\\keys.json'
