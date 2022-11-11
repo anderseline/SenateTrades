@@ -1,6 +1,6 @@
-Ticker : AORT
-Senator : Tina Smith (D - Minnesota)
-Value : $50,001 to $100,000
-Trade Date : 2022-09-23
-https://finance.yahoo.com/quote/AORT
+Ticker : MSFT
+Senator : Thomas H Tuberville (R - Alabama)
+Value : $250,001 to $500,000
+Trade Date : 2022-10-13
+https://finance.yahoo.com/quote/MSFT
 https://docs.google.com/spreadsheets/d/1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk

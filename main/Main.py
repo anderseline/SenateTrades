@@ -307,8 +307,10 @@ def scrapeImportantTrades(today=datetime.today().date(), onlyToday=False, backte
         # if the ticker is an ETF, not a stock, or an options play
         if not isStock(right_table) or 'Option' in trade:
             continue
-        
-        sect, ind = getSectorIndustry(ticker)
+        try:
+            sect, ind = getSectorIndustry(ticker)
+        except ValueError:
+            sect, ind = '', ''
         mkt_cap = getMktCap(right_table)
         try:
             mkt_cap = parseToMillions(mkt_cap)
@@ -329,6 +331,7 @@ def scrapeImportantTrades(today=datetime.today().date(), onlyToday=False, backte
             cap_string = 'large'
 
         if imp_trade:
+            print(ticker)
             url = 'https://finance.yahoo.com/quote/{}/'.format(ticker)
             trade_dict = {
                 'trade date' : trade_date,
@@ -389,12 +392,13 @@ def formatForEmail(trades_list):
 
 def sendEmails(trades, toList, toNewList):
 
-    CLIENT_SECRET_FILE = '..\\res\\gmail\\senatetrades_gmailKeys.json'
+    CLIENT_SECRET_FILE = '..\\res\\gmail\\gmail_keys.json'
     API_NAME = 'gmail'
     API_VERSION = 'v1'
     SCOPES = ['https://mail.google.com/']
 
     service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+    print(service)
     send_email = 'senatetrades@gmail.com'
     recipients = []
 
@@ -579,14 +583,14 @@ def updateSPPrice():
 
 def main():
 
-    onlyToday = True                     
-    toList = True
+    onlyToday = False                     
+    toList = False
     toNewList = False
-    createPostFiles = True  
-    tweet = True
-    email = True   
-    dashboard = True     
-    backtestDate = '2022-10-01'
+    createPostFiles = False  
+    tweet = False
+    email = True
+    dashboard = False     
+    backtestDate = '2022-11-09'
     twitter_write_path = '..\\res\\twitter\\write_for_twitter.txt'
     twitter_keys_path = '..\\res\\twitter\\keys.json'
     dashboard_row_path = '..\\res\\sheets\\row.txt'
