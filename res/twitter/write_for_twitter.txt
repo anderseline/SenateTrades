@@ -1,6 +1,6 @@
-Ticker : MSFT
-Senator : Thomas H Tuberville (R - Alabama)
-Value : $250,001 to $500,000
-Trade Date : 2022-10-13
-https://finance.yahoo.com/quote/MSFT
+Ticker : BATRK
+Senator : John W Hickenlooper (D - Colorado)
+Value : $50,001 to $100,000
+Trade Date : 2022-11-23
+https://finance.yahoo.com/quote/BATRK
 https://docs.google.com/spreadsheets/d/1zSpyfOWCuUkW4yzCh-PnHx5Qv_WWFb3AsMnoXUjr8qk
