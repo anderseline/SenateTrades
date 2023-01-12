@@ -1,4 +1,8 @@
 *.pyc
 __pycache__
-
-ip
+css
+mail_info
+news
+sheets
+twitter
+tools
